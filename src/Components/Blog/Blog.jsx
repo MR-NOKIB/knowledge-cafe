@@ -4,9 +4,9 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 
-const Blog = ({ blog }) => {
-    const { image, id, name, profilePic, time, question } = blog;
-    console.log(image);
+const Blog = (props) => {
+    const handleAddToBookmark = props.handleAddToBookmark;
+    const { image, id, name, profilePic, time, question } = props.blog;
     return (
         <div className='w-[845px] mb-7 border-b-2 border-b-gray-200'>
             <img className='min-w-[845px] h-[420px] rounded-lg' src={image} alt="" />
@@ -19,7 +19,7 @@ const Blog = ({ blog }) => {
                     </span>
                 </div>
                 <div>
-                    <p>{time} min read <button><FontAwesomeIcon icon={faBookmark} /></button></p>
+                    <p>{time} min read <button onClick={() => handleAddToBookmark(props.blog)}><FontAwesomeIcon icon={faBookmark} /></button></p>
                 </div>
             </div>
             <h1 className='text-5xl font-semibold leading-relaxed mb-4'>{question}</h1>
