@@ -6,6 +6,7 @@ import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 
 const Blog = (props) => {
     const handleAddToBookmark = props.handleAddToBookmark;
+    const markAsRead = props.markAsRead;
     const { image, id, name, profilePic, time, question } = props.blog;
     return (
         <div className='w-[845px] mb-7 border-b-2 border-b-gray-200'>
@@ -24,9 +25,9 @@ const Blog = (props) => {
             </div>
             <h1 className='text-5xl font-semibold leading-relaxed mb-4'>{question}</h1>
             <p className='mb-6 text-sm text-gray-700'>#beginners #programming</p>
-            <p className='mb-7'>
-                <a className='text-blue-700 underline font-semibold' href="">Mark as read</a>
-            </p>
+            <div className='mb-7'>
+                <button className='text-white font-semibold bg-black px-7 py-2 rounded' onClick={()=>markAsRead(props.blog)}>Mark As Read</button>
+            </div>
         </div>
     );
 };
